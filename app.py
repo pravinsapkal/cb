@@ -7,26 +7,24 @@ app = Flask(__name__)
 
 @app.route("/predict", methods = ['POST'])
 def predict():
-    pred = mks_pdc = 0
+    ans_pdc = sentence = ''
     if request.method == "POST":
-        hrs = request.form["hrs"]
-        if hrs:
-            mks_pdc = chat.marks_prediction(hrs)
+        sentence = request.form["que"]
+        if sentence != '':
+            ans_pdc = chat.ans_prediction(sentence)
 
-    data = {'prediction': mks_pdc[0][0], 'hrs': hrs}
+    data = {'que': sentence, 'prediction': ans_pdc}
     return jsonify(data)
 
 @app.route("/", methods = ['GET', 'POST'])
 def hello():
-    pred = mks_pdc = 0
+    ans_pdc = sentence = ''
     if request.method == "POST":
-        hrs = request.form["hrs"]
-        print(hrs)
-        if hrs != '':
-            mks_pdc = chat.marks_prediction(hrs)
-            print(mks_pdc)
+        sentence = request.form["que"]
+        if sentence != '':
+            ans_pdc = chat.ans_prediction(sentence)
 
-    return render_template("index.html", pred = mks_pdc)
+    return render_template("index.html", que = sentence, pred = ans_pdc)
 
 #if __name__ == "__main__":
 #    app.run(debug=True)

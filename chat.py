@@ -27,7 +27,7 @@ model.eval()
 
 bot_name = "Sam"
 #print("Let's chat! (type 'quit' to exit)")
-def marks_prediction(sentence):
+def ans_prediction(sentence):
     # sentence = "do you use credit cards?"
     #sentence = input("You: ")
     #if sentence == "quit":

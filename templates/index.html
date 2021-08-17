@@ -4,17 +4,17 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Chatbot</title>
     </head>
     <body>
-        <h1>Model Deployment</h1>
-        <p>Enter the number of hours you've studed:</p>
+        <h1>Chatbot in PyTorch</h1>
+        <p>Simple chatbot implementation with PyTorch</p>
         <form action="/" method="post">
-            <input type="text" name="hrs" placeholder="Hours studied?">
+            <input type="text" name="que" placeholder="How may I help you?">
         </form>
 
         {% if pred %}
-            <p>Marks predicted: {{pred}}</p>
+            <p>Bot: {{pred}}</p>
         {% endif %}
 
     </body>
