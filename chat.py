@@ -26,12 +26,12 @@ model.load_state_dict(model_state)
 model.eval()
 
 bot_name = "Sam"
-print("Let's chat! (type 'quit' to exit)")
-while True:
+#print("Let's chat! (type 'quit' to exit)")
+def marks_prediction(sentence):
     # sentence = "do you use credit cards?"
-    sentence = input("You: ")
-    if sentence == "quit":
-        break
+    #sentence = input("You: ")
+    #if sentence == "quit":
+        #break
 
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
@@ -48,6 +48,8 @@ while True:
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
+                predict = random.choice(intent['responses'])
     else:
-        print(f"{bot_name}: I do not understand...")
+        predict ="I do not understand..."
+
+    return predict
